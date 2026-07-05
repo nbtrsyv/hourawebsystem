@@ -1,0 +1,351 @@
+/* admin-style.css */
+:root {
+    --primary-blue: #2196F3;
+    --dark-blue: #1976D2;
+    --light-blue: #E3F2FD;
+    --accent-teal: #00BCD4;
+    --text-dark: #0D47A1;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --success: #28a745;
+    --info: #17a2b8;
+}
+
+/* Reset untuk pastikan tiada margin/padding dari browser */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Admin Layout */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar - UBAH BAHAGIAN INI SAHAJA */
+.admin-sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, var(--dark-blue), var(--primary-blue));
+    color: white;
+    position: fixed;
+    top: 0; /* TAMBAH INI - pastikan di atas */
+    left: 0; /* TAMBAH INI */
+    height: 100vh;
+    overflow-y: auto;
+    transition: all 0.3s;
+    z-index: 1000;
+    margin: 0; /* TAMBAH INI */
+    padding: 0; /* TAMBAH INI */
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-top: 0; /* TAMBAH INI - remove top margin */
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.sidebar-menu {
+    padding: 20px 0;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin: 5px 0;
+}
+
+.sidebar-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    background: rgba(255,255,255,0.1);
+    border-left-color: var(--accent-teal);
+}
+
+.sidebar-menu i {
+    width: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+/* Main Content - UBAH INI JUGA */
+.admin-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #f5f7fa;
+    min-height: 100vh; /* TAMBAH INI */
+}
+
+.admin-header {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    color: var(--primary-blue);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.stat-icon.users { background: var(--danger); }
+.stat-icon.services { background: var(--warning); }
+.stat-icon.requests { background: var(--info); }
+.stat-icon.transactions { background: var(--success); }
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin: 5px 0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Tables */
+.admin-table-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+.admin-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table tr:hover {
+    background-color: #f9f9ff;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active { background: #d4edda; color: #155724; }
+.status-suspended { background: #fff3cd; color: #856404; }
+.status-banned { background: #f8d7da; color: #721c24; }
+.status-pending { background: #cce5ff; color: #004085; }
+.status-completed { background: #d4edda; color: #155724; }
+.status-cancelled { background: #f8d7da; color: #721c24; }
+
+/* Action Buttons */
+.btn-action {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-edit {
+    background: var(--info);
+    color: white;
+}
+
+.btn-delete {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-view {
+    background: var(--success);
+    color: white;
+}
+
+.btn-action:hover {
+    opacity: 0.8;
+}
+
+/* Filter Controls */
+.filter-bar {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .admin-sidebar {
+        width: 70px;
+        top: 0; /* PASTIKAN tetap di atas pada mobile */
+    }
+    
+    .admin-sidebar .menu-text {
+        display: none;
+    }
+    
+    .admin-content {
+        margin-left: 70px;
+    }
+    
+    .sidebar-menu a {
+        text-align: center;
+        padding: 15px 10px;
+    }
+    
+    .sidebar-menu i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group select,
+    .filter-group input {
+        width: 100%;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+#wrapper, .container, .main, #sidebar, .dashboard {
+    margin-top: 0;
+    padding-top: 0;
+}
